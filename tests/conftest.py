@@ -13,7 +13,7 @@ def product_iphone():
 
 @pytest.fixture
 def category_phone():
-    """ Фикстура для проверки инициализации класса Category."""
+    """Фикстура для проверки инициализации класса Category."""
 
     product_1 = Product(
         "Samsung Galaxy S23 Ultra",

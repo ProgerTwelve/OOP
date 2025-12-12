@@ -4,6 +4,7 @@ import os
 from src.class_category import Category
 from src.class_product import Product
 
+
 def read_json(path: str) -> list[dict]:
     """Функция для преобразования json-файла в словарь."""
 
@@ -11,6 +12,7 @@ def read_json(path: str) -> list[dict]:
     with open(full_path, 'r', encoding='UTF-8') as file:
         data = json.load(file)
     return data
+
 
 def create_objects_from_json(data: list[dict]) -> list[object]:
     """Преобразует данные, полученные из json-файла
@@ -25,7 +27,3 @@ def create_objects_from_json(data: list[dict]) -> list[object]:
         categories.append(Category(**category))
 
     return categories
-
-
-
-
