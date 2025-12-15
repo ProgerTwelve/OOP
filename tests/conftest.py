@@ -47,3 +47,30 @@ def category_tv():
     )
 
     return category_2
+
+
+@ pytest.fixture
+def category_with_empty_products():
+    """Фикстура с объектом класса Category с пустым списком продуктов для проверки
+    метода add_product."""
+
+    category_1 = Category(
+        "Смартфоны",
+        "Смартфоны, как средство не только коммуникации, но и получения "
+        "дополнительных функций для удобства жизни",
+        [],
+    )
+    return category_1
+
+
+@pytest.fixture
+def check_add_category():
+    """Фикстура для проверки метода add_product в классе Category."""
+
+    product_1 = Product(
+        "Samsung Galaxy S23 Ultra",
+        "256GB, Серый цвет, 200MP камера",
+        180000.0,
+        5,
+    )
+    return product_1
