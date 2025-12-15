@@ -16,8 +16,8 @@ def test_new_product():
         "name": "Iphone 15",
         "description": "512GB, Gray space",
         "price": 210000.0,
-        "quantity": 8
-      }
+        "quantity": 8,
+    }
 
     new_product = Product.new_product(product_dict)
     assert new_product.name == "Iphone 15"
@@ -63,6 +63,3 @@ def test_setter_price_rejected(product_iphone, monkeypatch):
     monkeypatch.setattr("builtins.input", lambda _: "n")
     product_iphone.price = 90000.0
     assert product_iphone.price == 210000.0
-
-
-

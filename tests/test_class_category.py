@@ -32,7 +32,7 @@ def test_add_product(category_with_empty_products, check_add_product):
 
 
 def test_add_product_existing_product():
-    """Тест для проверки метода add_product, в случае, когда продукт уже существует в списке. """
+    """Тест для проверки метода add_product, в случае, когда продукт уже существует в списке."""
 
     category = Category("Смартфоны", "Для жизни и связи")
     product_1 = Product("Iphone 15", "Телефон", 120000.0, 5)
@@ -50,8 +50,9 @@ def test_add_product_existing_product():
 def products_category(category_phone):
     """Тест для проверки геттера products в классе Category."""
 
-    assert category_phone.products == """Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт./n
+    assert (
+        category_phone.products
+        == """Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт./n
                                         Iphone 15, 210000.0 руб. Остаток: 8 шт./n
                                         Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт."""
-
-
+    )

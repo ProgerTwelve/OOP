@@ -12,11 +12,9 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
-
     @property
     def price(self):
         return self.__price
-
 
     @price.setter
     def price(self, new_price):
@@ -24,7 +22,9 @@ class Product:
             print("Цена не должна быть нулевая или отрицательная")
             return
         elif new_price < self.__price:
-            result = input("Вы хотите (y) понизить цену, или хотите оставить цену прежней(n):")
+            result = input(
+                "Вы хотите (y) понизить цену, или хотите оставить цену прежней(n):"
+            )
             if result.lower() == "y":
                 self.__price = new_price
             else:
@@ -32,11 +32,9 @@ class Product:
         else:
             self.__price = new_price
 
-
-
     @classmethod
     def new_product(cls, product: dict):
-        """ Класс-метод, который принимает информацию о продукте в виде словаря
-        и возвращает объект класса Product. """
+        """Класс-метод, который принимает информацию о продукте в виде словаря
+        и возвращает объект класса Product."""
 
         return cls(**product)

@@ -49,7 +49,7 @@ def category_tv():
     return category_2
 
 
-@ pytest.fixture
+@pytest.fixture
 def category_with_empty_products():
     """Фикстура с объектом класса Category с пустым списком продуктов для проверки
     метода add_product."""

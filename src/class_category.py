@@ -17,25 +17,33 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
 
-
     def add_product(self, product: Product):
         """Метод для добавления продуктов в виде объекта класса Product
         в приватный атрибут self.__products класса Category."""
 
-        for prod in self.__products:          # Цикл для проверки наличия добавляемого продукта в списке продуктов
-            if prod.name == product.name:     # Если добавляемый продукт уже есть в списке класса
-                prod.quantity += product.quantity    # Просто плюсуем количество добавляемого продукта в нашем списке
-                prod.price = max(prod.price, product.price)     # Ставим наибольшую цену
-                return                                          # Выходим из метода
+        for (
+            prod
+        ) in (
+            self.__products
+        ):  # Цикл для проверки наличия добавляемого продукта в списке продуктов
+            if (
+                prod.name == product.name
+            ):  # Если добавляемый продукт уже есть в списке класса
+                prod.quantity += (
+                    product.quantity
+                )  # Просто плюсуем количество добавляемого продукта в нашем списке
+                prod.price = max(
+                    prod.price, product.price
+                )  # Ставим наибольшую цену
+                return  # Выходим из метода
 
         # Если продукта нет в списке продуктов, то добавляем продукт полностью
         self.__products.append(product)
         Category.product_count += 1
 
-
     @property
     def products(self):
-        """ Геттер для возвращения информации о продуктах в виде
+        """Геттер для возвращения информации о продуктах в виде
         "Название продукта, X руб. Остаток: X шт.\n" """
 
         products_information = ""
@@ -43,4 +51,3 @@ class Category:
             products_information += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт. \n"
 
         return products_information
-
