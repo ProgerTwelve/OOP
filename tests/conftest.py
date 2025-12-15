@@ -64,13 +64,13 @@ def category_with_empty_products():
 
 
 @pytest.fixture
-def check_add_category():
+def check_add_product():
     """Фикстура для проверки метода add_product в классе Category."""
 
-    product_1 = Product(
+    product_4 = Product(
         "Samsung Galaxy S23 Ultra",
         "256GB, Серый цвет, 200MP камера",
         180000.0,
         5,
     )
-    return product_1
+    return product_4
