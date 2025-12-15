@@ -11,3 +11,11 @@ class Product:
         self.description = description
         self.price = price
         self.quantity = quantity
+
+
+    @classmethod
+    def new_product(cls, product: dict):
+        """ Класс-метод, который принимает информацию о продукте в виде словаря
+        и возвращает объект класса Product. """
+
+        return cls(**product)

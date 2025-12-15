@@ -22,6 +22,13 @@ class Category:
         """Метод для добавления продуктов в виде объекта класса Product
         в приватный атрибут self.__products класса Category."""
 
+        for prod in self.__products:          # Цикл для проверки наличия добавляемого продукта в списке продуктов
+            if prod.name == product.name:     # Если добавляемый продукт уже есть в списке класса
+                prod.quantity += product.quantity    # Просто плюсуем количество добавляемого продукта в нашем списке
+                prod.price = max(prod.price, product.price)     # Ставим наибольшую цену
+                return                                          # Выходим из метода
+
+        # Если продукта нет в списке продуктов, то добавляем продукт полностью
         self.__products.append(product)
         Category.product_count += 1
 
