@@ -26,3 +26,12 @@ def test_add_category(category_with_empty_products, check_add_category):
     assert len(category_with_empty_products._Category__products) == 1
     assert category_with_empty_products.product_count == 5
 
+
+def products_category(category_phone):
+    """Тест для проверки геттера products в классе Category."""
+
+    assert category_phone.products == """Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт./n
+                                        Iphone 15, 210000.0 руб. Остаток: 8 шт./n
+                                        Xiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт."""
+
+

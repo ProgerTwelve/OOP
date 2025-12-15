@@ -26,3 +26,14 @@ class Category:
         Category.product_count += 1
 
 
+    @property
+    def products(self):
+        """ Геттер для возвращения информации о продуктах в виде
+        "Название продукта, X руб. Остаток: X шт.\n" """
+
+        products_information = ""
+        for product in self.__products:
+            products_information += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт. \n"
+
+        return products_information
+
