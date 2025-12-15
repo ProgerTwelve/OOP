@@ -24,3 +24,45 @@ def test_new_product():
     assert new_product.description == "512GB, Gray space"
     assert new_product.price == 210000.0
     assert new_product.quantity == 8
+
+
+def test_getter_price():
+    """Проверка геттера на доступ к приватному значению __price класса Product."""
+
+    product = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    assert product.price == 210000.0
+
+
+def test_setter_price_cannot_be_zero(product_iphone, capsys):
+    """Тест сеттера price для случая price <= 0 класса Product."""
+
+    product_iphone.price = 0
+    captured = capsys.readouterr()
+    assert "Цена не должна быть нулевая или отрицательная" in captured.out
+    assert product_iphone.price == 210000.0
+
+
+def test_setter_price(product_iphone):
+    """Тест сеттера price для случая price > нынешней класса Product."""
+
+    product_iphone.price = 300000.0
+    assert product_iphone.price == 300000.0
+
+
+def test_setter_price_decrease(product_iphone, monkeypatch):
+    """Тест сеттера price для случая установления price < нынешней класса Product."""
+
+    monkeypatch.setattr("builtins.input", lambda _: "y")
+    product_iphone.price = 90000.0
+    assert product_iphone.price == 90000.0
+
+
+def test_setter_price_rejected(product_iphone, monkeypatch):
+    """Тест сеттера price для случая не установления price < нынешней класса Product."""
+
+    monkeypatch.setattr("builtins.input", lambda _: "n")
+    product_iphone.price = 90000.0
+    assert product_iphone.price == 210000.0
+
+
+
