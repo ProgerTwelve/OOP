@@ -17,24 +17,24 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products) if products else 0
 
+    def __str__(self):
+        """Строковое отображение класса Category в следующем виде: Название категории, количество продуктов: 200 шт.
+        Здесь количество продуктов считается из общего числа всех продуктов на складе."""
+
+        counting_quantity_products = 0
+        for prod in self.__products:
+            counting_quantity_products += prod.quantity
+
+        return f'{self.name}, количество продуктов: {counting_quantity_products} шт.'
+
     def add_product(self, product: Product):
         """Метод для добавления продуктов в виде объекта класса Product
         в приватный атрибут self.__products класса Category."""
 
-        for (
-            prod
-        ) in (
-            self.__products
-        ):  # Цикл для проверки наличия добавляемого продукта в списке продуктов
-            if (
-                prod.name == product.name
-            ):  # Если добавляемый продукт уже есть в списке класса
-                prod.quantity += (
-                    product.quantity
-                )  # Просто плюсуем количество добавляемого продукта в нашем списке
-                prod.price = max(
-                    prod.price, product.price
-                )  # Ставим наибольшую цену
+        for prod in self.__products:  # Цикл для проверки наличия добавляемого продукта в списке продуктов
+            if prod.name == product.name:  # Если добавляемый продукт уже есть в списке класса
+                prod.quantity += product.quantity  # Просто плюсуем количество добавляемого продукта в нашем списке
+                prod.price = max(prod.price, product.price)  # Ставим наибольшую цену
                 return  # Выходим из метода
 
         # Если продукта нет в списке продуктов, то добавляем продукт полностью
@@ -48,6 +48,6 @@ class Category:
 
         products_information = ""
         for product in self.__products:
-            products_information += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт. \n"
+            products_information += str(product) + '\n'
 
         return products_information

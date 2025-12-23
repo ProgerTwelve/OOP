@@ -12,6 +12,11 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self):
+        """Магический метод для вывода в консоль информации о продукте (для пользователей). """
+
+        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
+
     @property
     def price(self):
         return self.__price

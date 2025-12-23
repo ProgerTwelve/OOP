@@ -63,3 +63,11 @@ def test_setter_price_rejected(product_iphone, monkeypatch):
     monkeypatch.setattr("builtins.input", lambda _: "n")
     product_iphone.price = 90000.0
     assert product_iphone.price == 210000.0
+
+
+def test_str_product(product_iphone):
+    """Тест для проверки магического метода __str__ в классе Product."""
+
+    assert str(product_iphone) == "Iphone 15, 210000.0 руб. Остаток: 8 шт."
+
+
