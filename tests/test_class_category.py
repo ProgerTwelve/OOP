@@ -50,13 +50,14 @@ def test_add_product_existing_product():
 def test_products_category(category_phone):
     """Тест для проверки геттера products в классе Category."""
 
-    assert category_phone.products == ("Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
-                                       "\nIphone 15, 210000.0 руб. Остаток: 8 шт."
-                                       "\nXiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n")
+    assert category_phone.products == (
+        "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт."
+        "\nIphone 15, 210000.0 руб. Остаток: 8 шт."
+        "\nXiaomi Redmi Note 11, 31000.0 руб. Остаток: 14 шт.\n"
+    )
 
 
 def test_str_category(category_phone):
     """Тест для проверки магического метода __str__ в классе Category."""
 
     assert str(category_phone) == "Смартфоны, количество продуктов: 27 шт."
-

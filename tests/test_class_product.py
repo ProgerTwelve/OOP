@@ -74,7 +74,12 @@ def test_str_product(product_iphone):
 def test_add_product():
     """Тест для проверки магического метода __add__ в классе Product."""
 
-    product_1 = Product("Samsung Galaxy S23","256GB, 200MP камера",180000.0,5,)
+    product_1 = Product(
+        "Samsung Galaxy S23",
+        "256GB, 200MP камера",
+        180000.0,
+        5,
+    )
     product_2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
     product_3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
 
@@ -85,8 +90,3 @@ def test_add_product():
     assert sum_1 == 2580000.0
     assert sum_2 == 1334000.0
     assert sum_3 == 2114000.0
-
-
-
-
-

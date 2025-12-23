@@ -13,16 +13,18 @@ class Product:
         self.quantity = quantity
 
     def __str__(self):
-        """Магический метод для вывода в консоль информации о продукте (для пользователей). """
+        """Магический метод для вывода в консоль информации о продукте (для пользователей)."""
 
-        return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
-
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other):
         """Магический метод для сложения продуктов.
-        Логика сложения должна работать так, чтобы в итоге у вас получалась полная стоимость всех товаров на складе."""
+        Логика сложения должна работать так, чтобы в итоге у вас получалась полная стоимость всех товаров на складе.
+        """
 
-        summa = (self.__price * self.quantity) + (other.__price * other.quantity)
+        summa = (self.__price * self.quantity) + (
+            other.__price * other.quantity
+        )
 
         return summa
 
