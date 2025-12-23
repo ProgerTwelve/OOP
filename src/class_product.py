@@ -17,6 +17,15 @@ class Product:
 
         return f'{self.name}, {self.__price} руб. Остаток: {self.quantity} шт.'
 
+
+    def __add__(self, other):
+        """Магический метод для сложения продуктов.
+        Логика сложения должна работать так, чтобы в итоге у вас получалась полная стоимость всех товаров на складе."""
+
+        summa = (self.__price * self.quantity) + (other.__price * other.quantity)
+
+        return summa
+
     @property
     def price(self):
         return self.__price
