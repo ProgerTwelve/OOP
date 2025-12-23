@@ -63,3 +63,30 @@ def test_setter_price_rejected(product_iphone, monkeypatch):
     monkeypatch.setattr("builtins.input", lambda _: "n")
     product_iphone.price = 90000.0
     assert product_iphone.price == 210000.0
+
+
+def test_str_product(product_iphone):
+    """Тест для проверки магического метода __str__ в классе Product."""
+
+    assert str(product_iphone) == "Iphone 15, 210000.0 руб. Остаток: 8 шт."
+
+
+def test_add_product():
+    """Тест для проверки магического метода __add__ в классе Product."""
+
+    product_1 = Product(
+        "Samsung Galaxy S23",
+        "256GB, 200MP камера",
+        180000.0,
+        5,
+    )
+    product_2 = Product("Iphone 15", "512GB, Gray space", 210000.0, 8)
+    product_3 = Product("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14)
+
+    sum_1 = product_1 + product_2
+    sum_2 = product_1 + product_3
+    sum_3 = product_2 + product_3
+
+    assert sum_1 == 2580000.0
+    assert sum_2 == 1334000.0
+    assert sum_3 == 2114000.0

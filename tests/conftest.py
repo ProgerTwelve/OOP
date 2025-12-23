@@ -2,6 +2,7 @@ import pytest
 
 from src.class_product import Product
 from src.class_category import Category
+from src.class_list_product import ListProduct
 
 
 @pytest.fixture
@@ -74,3 +75,10 @@ def check_add_product():
         5,
     )
     return product_4
+
+
+@pytest.fixture
+def list_iterator(category_phone):
+    """Фикстура для проверки итерации для класса ListProduct."""
+
+    return ListProduct(category_phone)
