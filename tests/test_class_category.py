@@ -1,3 +1,5 @@
+import pytest
+
 from src.class_category import Category
 from src.class_product import Product
 
@@ -45,6 +47,29 @@ def test_add_product_existing_product():
     assert len(products) == 1
     assert products[0].quantity == 7
     assert products[0].price == 130000.0
+
+
+def test_add_product_smartphone_and_lawngrass(
+    object_smartphone, object_lawngrass
+):
+    """Тест для проверки добавления продуктов из подклассов Smartphone и LawnGrass."""
+
+    category_1 = Category("Смартфоны", "Для жизни и связи")
+    category_1.add_product(object_lawngrass)
+    category_1.add_product(object_smartphone)
+    products = category_1._Category__products
+    assert len(products) == 2
+
+
+def test_add_product_error():
+    """Тест для проверки невозможности добавления в список продуктов класса Category иных объектов,
+    отличных от класса Product и его подклассов."""
+
+    category_2 = Category("Смартфоны", "Для жизни и связи")
+    products = ["Iphone", "Samsung", "Nokia"]
+
+    with pytest.raises(TypeError):
+        category_2.add_product(products)
 
 
 def test_products_category(category_phone):

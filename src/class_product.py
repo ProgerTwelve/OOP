@@ -21,12 +21,14 @@ class Product:
         """Магический метод для сложения продуктов.
         Логика сложения должна работать так, чтобы в итоге у вас получалась полная стоимость всех товаров на складе.
         """
+        if type(other) is self.__class__:
+            summa = (self.__price * self.quantity) + (
+                other.__price * other.quantity
+            )
 
-        summa = (self.__price * self.quantity) + (
-            other.__price * other.quantity
-        )
-
-        return summa
+            return summa
+        else:
+            raise TypeError
 
     @property
     def price(self):

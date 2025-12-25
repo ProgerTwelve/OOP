@@ -1,8 +1,10 @@
 import pytest
 
+from src.class_lawngrass import LawnGrass
 from src.class_product import Product
 from src.class_category import Category
 from src.class_list_product import ListProduct
+from src.class_smartphone import Smartphone
 
 
 @pytest.fixture
@@ -82,3 +84,38 @@ def list_iterator(category_phone):
     """Фикстура для проверки итерации для класса ListProduct."""
 
     return ListProduct(category_phone)
+
+
+@pytest.fixture
+def object_smartphone():
+    """Фикстура для класса Smartphone."""
+
+    smartphone1 = Smartphone(
+        "Samsung Galaxy S23 Ultra",
+        "256GB, Серый цвет, 200MP камера",
+        180000.0,
+        5,
+        95.5,
+        "S23 Ultra",
+        256,
+        "Серый",
+    )
+
+    return smartphone1
+
+
+@pytest.fixture
+def object_lawngrass():
+    """Фикстура для класса LawnGrass."""
+
+    grass1 = LawnGrass(
+        "Газонная трава",
+        "Элитная трава для газона",
+        500.0,
+        20,
+        "Россия",
+        "7 дней",
+        "Зеленый",
+    )
+
+    return grass1
