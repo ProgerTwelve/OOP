@@ -90,9 +90,16 @@ def list_iterator(category_phone):
 def object_smartphone():
     """Фикстура для класса Smartphone."""
 
-    smartphone1 = Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера",
-                             180000.0, 5, 95.5,
-                             "S23 Ultra", 256, "Серый")
+    smartphone1 = Smartphone(
+        "Samsung Galaxy S23 Ultra",
+        "256GB, Серый цвет, 200MP камера",
+        180000.0,
+        5,
+        95.5,
+        "S23 Ultra",
+        256,
+        "Серый",
+    )
 
     return smartphone1
 
@@ -101,7 +108,14 @@ def object_smartphone():
 def object_lawngrass():
     """Фикстура для класса LawnGrass."""
 
-    grass1 = LawnGrass("Газонная трава", "Элитная трава для газона", 500.0,
-                       20, "Россия", "7 дней", "Зеленый")
+    grass1 = LawnGrass(
+        "Газонная трава",
+        "Элитная трава для газона",
+        500.0,
+        20,
+        "Россия",
+        "7 дней",
+        "Зеленый",
+    )
 
     return grass1

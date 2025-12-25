@@ -1,3 +1,5 @@
+import pytest
+
 from src.class_product import Product
 
 
@@ -90,3 +92,10 @@ def test_add_product():
     assert sum_1 == 2580000.0
     assert sum_2 == 1334000.0
     assert sum_3 == 2114000.0
+
+
+def test_add_product_error(object_lawngrass, object_smartphone):
+    """Тест для проверки невозможности складывания продуктов из разных классов."""
+
+    with pytest.raises(TypeError):
+        object_lawngrass + object_smartphone
