@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.mixin_repr import MixinRepr
+
+
+class Product(BaseProduct, MixinRepr):
     """Класс для обработки информации о продуктах."""
 
     name: str  # Название продукта
@@ -11,6 +15,7 @@ class Product:
         self.description = description
         self.__price = price
         self.quantity = quantity
+        super().__init__()
 
     def __str__(self):
         """Магический метод для вывода в консоль информации о продукте (для пользователей)."""
