@@ -11,6 +11,8 @@ class Category:
     product_count = 0  # Подсчет количества продуктов (Атрибут класса)
 
     def __init__(self, name, description, products=None):
+        """Инициализация объекта класса Category."""
+
         self.name = name
         self.description = description
         self.__products = products if products else []

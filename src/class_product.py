@@ -11,6 +11,8 @@ class Product(BaseProduct, MixinRepr):
     quantity: int  # Количество продукта в наличии
 
     def __init__(self, name, description, price, quantity):
+        """Конструктор класса Product."""
+
         self.name = name
         self.description = description
         self.__price = price
@@ -37,10 +39,14 @@ class Product(BaseProduct, MixinRepr):
 
     @property
     def price(self):
+        """Геттер для получения цены продукта."""
+
         return self.__price
 
     @price.setter
     def price(self, new_price):
+        """Сеттер для изменения цены продукта."""
+
         if new_price <= 0:
             print("Цена не должна быть нулевая или отрицательная")
             return
