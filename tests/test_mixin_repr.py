@@ -1,5 +1,5 @@
-from src.class_product import Product
 from src.class_lawngrass import LawnGrass
+from src.class_product import Product
 from src.class_smartphone import Smartphone
 
 

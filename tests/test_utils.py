@@ -1,5 +1,6 @@
-from src.utils import read_json, create_objects_from_json
 from unittest.mock import MagicMock, mock_open, patch
+
+from src.utils import create_objects_from_json, read_json
 
 
 def test_read_json_with_mock():
