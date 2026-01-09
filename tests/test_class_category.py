@@ -86,3 +86,15 @@ def test_str_category(category_phone):
     """Тест для проверки магического метода __str__ в классе Category."""
 
     assert str(category_phone) == "Смартфоны, количество продуктов: 27 шт."
+
+
+def test_middle_price_category(category_phone):
+    """Тест на проверку метода middle_price класса Category в случае наличия товаров."""
+
+    assert category_phone.middle_price() == 140333.33333333334
+
+
+def test_empty_product_middle_price_category(category_with_empty_products):
+    """Тест метода middle_price класса Category при отсутствии продуктов."""
+
+    assert category_with_empty_products.middle_price() == 0
