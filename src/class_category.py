@@ -67,3 +67,16 @@ class Category:
             products_information += str(product) + "\n"
 
         return products_information
+
+    def middle_price(self):
+        """Метод, который подсчитывает средний ценник всех товаров. Если товаров нет, возвращается ноль."""
+
+        try:
+            total_price = 0
+
+            for product in self.__products:
+                total_price += product.price
+
+            return total_price / len(self.__products)
+        except ZeroDivisionError:
+            return 0

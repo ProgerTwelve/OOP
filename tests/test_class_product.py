@@ -99,3 +99,10 @@ def test_add_product_error(object_lawngrass, object_smartphone):
 
     with pytest.raises(TypeError):
         object_lawngrass + object_smartphone
+
+
+def test_empty_quantity_product():
+    """Тест на проверку возбуждения исключения при нулевом количестве товара."""
+
+    with pytest.raises(ValueError, match="Товар с нулевым количеством не может быть добавлен"):
+        Product("Бракованный товар", "Неверное количество", 1000.0, 0)
